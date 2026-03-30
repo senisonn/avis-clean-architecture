@@ -1,0 +1,31 @@
+package fr.esgi.soheil.kevin.business;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
+import java.time.LocalDate;
+import java.util.List;
+
+@Entity
+@Table(name = "platform")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Platform {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Column(nullable = false, unique = true)
+    private String name;
+
+    private LocalDate releaseDate;
+
+    @ManyToMany(mappedBy = "platforms")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Game> games;
+}
