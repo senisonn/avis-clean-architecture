@@ -1,4 +1,9 @@
 package fr.esgi.soheil.kevin.application.dto;
 
-public record AuthResponse() {
-}
+/**
+ * Returned after a successful login or register.
+ */
+public record AuthResponse(
+        String token,
+        String username
+) {}

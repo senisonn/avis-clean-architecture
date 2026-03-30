@@ -4,17 +4,17 @@ import fr.esgi.soheil.kevin.adapter.out.persistence.entity.GameEntity;
 import fr.esgi.soheil.kevin.domain.model.Game;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class GameMapper {
 
-    private final GenreMapper     genreMapper;
-    private final PublisherMapper  publisherMapper;
-    private final AgeRatingMapper  ageRatingMapper;
-    private final PlatformMapper   platformMapper;
+    private final GenreMapper    genreMapper;
+    private final PublisherMapper publisherMapper;
+    private final AgeRatingMapper ageRatingMapper;
+    private final PlatformMapper  platformMapper;
 
-    // Entity → Domain
     public Game toDomain(GameEntity e) {
         if (e == null) return null;
         Game g = new Game();
@@ -26,7 +26,7 @@ public class GameMapper {
         g.setReleaseDate(e.getReleaseDate());
         g.setGenre(genreMapper.toDomain(e.getGenre()));
         g.setPublisher(publisherMapper.toDomain(e.getPublisher()));
-        g.setAgeRating(ageRatingMapper.toDomain(e.getAgeRating()));
+        g.setAgeRating(ageRatingMapper.toDomain(e.getAgeRatingEntity()));
         g.setPlatforms(
                 e.getPlatforms() == null ? List.of()
                         : e.getPlatforms().stream().map(platformMapper::toDomain).toList()
@@ -34,7 +34,6 @@ public class GameMapper {
         return g;
     }
 
-    // Domain → Entity
     public GameEntity toEntity(Game g) {
         if (g == null) return null;
         return GameEntity.builder()
@@ -46,7 +45,8 @@ public class GameMapper {
                 .releaseDate(g.getReleaseDate())
                 .genre(genreMapper.toEntity(g.getGenre()))
                 .publisher(publisherMapper.toEntity(g.getPublisher()))
-                .ageRating(ageRatingMapper.toEntity(g.getAgeRating()))
+                // builder field nommé ageRatingEntity dans GameEntity
+                .ageRatingEntity(ageRatingMapper.toEntity(g.getAgeRating()))
                 .platforms(
                         g.getPlatforms() == null ? List.of()
                                 : g.getPlatforms().stream().map(platformMapper::toEntity).toList()

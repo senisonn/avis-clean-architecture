@@ -1,4 +1,13 @@
 package fr.esgi.soheil.kevin.application.dto;
 
-public record AuthRequest() {
-}
+import jakarta.validation.constraints.*;
+
+public record AuthRequest(
+
+        @Email
+        @NotBlank
+        String email,
+
+        @NotBlank
+        String password
+) {}

@@ -1,17 +1,13 @@
 package fr.esgi.soheil.kevin.application.port.out;
 
 /**
- * Output port — the application layer declares what it needs
- * from a token system, without knowing it's JWT.
- * Swap to Nimbus, Auth0, or any other lib: only JwtTokenAdapter changes.
+ * Output port for token operations.
+ * Current implementation: JwtTokenAdapter (JJWT).
+ * Swappable without touching any handler or controller.
  */
 public interface TokenManager {
-
     String  generateToken(String subject);
-
     String  extractSubject(String token);
-
     boolean isValid(String token);
-
     void    invalidate(String token);
 }

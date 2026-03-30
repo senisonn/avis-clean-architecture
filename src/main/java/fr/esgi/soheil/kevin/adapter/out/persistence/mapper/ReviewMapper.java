@@ -25,7 +25,7 @@ public class ReviewMapper {
         
         r.setStatus(fr.esgi.soheil.kevin.domain.model.ReviewStatus
                 .valueOf(e.getStatus().name()));
-        r.setGame(gameMapper.toDomain(e.getGame()));
+        r.setGame(gameMapper.toDomain(e.getGameEntity()));
         r.setPlayer(playerMapper.toDomain(e.getPlayer()));
         r.setModerator(moderatorMapper.toDomain(e.getModerator()));
         return r;
@@ -41,7 +41,7 @@ public class ReviewMapper {
                 .submittedAt(r.getSubmittedAt())
                 
                 .status(ReviewStatus.valueOf(r.getStatus().name()))
-                .game(gameMapper.toEntity(r.getGame()))
+                .gameEntity(gameMapper.toEntity(r.getGame()))
                 .player(playerMapper.toEntity(r.getPlayer()))
                 .moderator(moderatorMapper.toEntity(r.getModerator()))
                 .build();

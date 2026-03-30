@@ -20,7 +20,7 @@ public class PlayerMapper {
         p.setEmail(e.getEmail());
         p.setPassword(e.getPassword());
         p.setBirthDate(e.getBirthDate());
-        p.setAvatar(avatarMapper.toDomain(e.getAvatar()));
+        p.setAvatar(avatarMapper.toDomain(e.getAvatarEntity()));
         return p;
     }
 
@@ -33,7 +33,7 @@ public class PlayerMapper {
                 .email(p.getEmail())
                 .password(p.getPassword())
                 .birthDate(p.getBirthDate())
-                .avatar(avatarMapper.toEntity(p.getAvatar()))
+                .avatarEntity(avatarMapper.toEntity(p.getAvatar()))
                 .build();
     }
 }
