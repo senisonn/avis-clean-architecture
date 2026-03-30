@@ -1,4 +1,4 @@
-package fr.esgi.soheil.kevin.adapter.out.persistence.entity;
+package fr.esgi.soheil.kevin.domain.model;
 
 public enum ReviewStatus {
     DRAFT,      

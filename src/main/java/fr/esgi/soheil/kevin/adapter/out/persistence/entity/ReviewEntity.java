@@ -1,5 +1,6 @@
 package fr.esgi.soheil.kevin.adapter.out.persistence.entity;
 
+import fr.esgi.soheil.kevin.domain.model.ReviewStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
