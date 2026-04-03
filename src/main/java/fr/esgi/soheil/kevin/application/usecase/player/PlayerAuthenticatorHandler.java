@@ -3,16 +3,16 @@ package fr.esgi.soheil.kevin.application.usecase.player;
 import fr.esgi.soheil.kevin.application.dto.AuthRequest;
 import fr.esgi.soheil.kevin.application.dto.AuthResponse;
 import fr.esgi.soheil.kevin.application.port.in.PlayerAuthenticator;
+import fr.esgi.soheil.kevin.application.port.out.PasswordHasher;
 import fr.esgi.soheil.kevin.application.port.out.PlayerRepository;
 import fr.esgi.soheil.kevin.application.port.out.TokenManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RequiredArgsConstructor
 public class PlayerAuthenticatorHandler implements PlayerAuthenticator {
 
     private final PlayerRepository playerRepository;
-    private final PasswordEncoder  passwordEncoder;
+    private final PasswordHasher   passwordHasher;
     private final TokenManager     tokenManager;
 
     @Override
@@ -20,7 +20,7 @@ public class PlayerAuthenticatorHandler implements PlayerAuthenticator {
         var player = playerRepository.findByEmail(request.email())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
 
-        if (!passwordEncoder.matches(request.password(), player.getPassword()))
+        if (!passwordHasher.matches(request.password(), player.getPassword()))
             throw new IllegalArgumentException("Invalid credentials");
 
         String token = tokenManager.generateToken(player.getEmail());

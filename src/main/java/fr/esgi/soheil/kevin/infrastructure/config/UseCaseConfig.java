@@ -1,12 +1,12 @@
 package fr.esgi.soheil.kevin.infrastructure.config;
 
+import fr.esgi.soheil.kevin.application.port.in.*;
 import fr.esgi.soheil.kevin.application.port.out.*;
 import fr.esgi.soheil.kevin.application.usecase.game.*;
 import fr.esgi.soheil.kevin.application.usecase.player.*;
 import fr.esgi.soheil.kevin.application.usecase.review.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * The only place in the codebase where ports are wired to handlers.
@@ -18,34 +18,34 @@ public class UseCaseConfig {
     // ── Game ──────────────────────────────────────────────────
 
     @Bean
-    public GameFinderHandler gameFinder(GameRepository gameRepository) {
+    public GameFinder gameFinder(GameRepository gameRepository) {
         return new GameFinderHandler(gameRepository);
     }
 
     @Bean
-    public GameCreatorHandler gameCreator(GameRepository gameRepository) {
+    public GameCreator gameCreator(GameRepository gameRepository) {
         return new GameCreatorHandler(gameRepository);
     }
 
     @Bean
-    public GameUpdaterHandler gameUpdater(GameRepository gameRepository) {
+    public GameUpdater gameUpdater(GameRepository gameRepository) {
         return new GameUpdaterHandler(gameRepository);
     }
 
     @Bean
-    public GameDeleterHandler gameDeleter(GameRepository gameRepository) {
+    public GameDeleter gameDeleter(GameRepository gameRepository) {
         return new GameDeleterHandler(gameRepository);
     }
 
     // ── Review ────────────────────────────────────────────────
 
     @Bean
-    public ReviewFinderHandler reviewFinder(ReviewRepository reviewRepository) {
+    public ReviewFinder reviewFinder(ReviewRepository reviewRepository) {
         return new ReviewFinderHandler(reviewRepository);
     }
 
     @Bean
-    public ReviewSubmitterHandler reviewSubmitter(
+    public ReviewSubmitter reviewSubmitter(
             ReviewRepository reviewRepository,
             GameRepository   gameRepository,
             PlayerRepository playerRepository) {
@@ -53,26 +53,26 @@ public class UseCaseConfig {
     }
 
     @Bean
-    public ReviewDeleterHandler reviewDeleter(ReviewRepository reviewRepository) {
+    public ReviewDeleter reviewDeleter(ReviewRepository reviewRepository) {
         return new ReviewDeleterHandler(reviewRepository);
     }
 
     @Bean
-    public ReviewApproverHandler reviewApprover(
+    public ReviewApprover reviewApprover(
             ReviewRepository    reviewRepository,
             ModeratorRepository moderatorRepository) {
         return new ReviewApproverHandler(reviewRepository, moderatorRepository);
     }
 
     @Bean
-    public ReviewRejectorHandler reviewRejector(
+    public ReviewRejector reviewRejector(
             ReviewRepository    reviewRepository,
             ModeratorRepository moderatorRepository) {
         return new ReviewRejectorHandler(reviewRepository, moderatorRepository);
     }
 
     @Bean
-    public PendingReviewFinderHandler pendingReviewFinder(
+    public PendingReviewFinder pendingReviewFinder(
             ReviewRepository reviewRepository) {
         return new PendingReviewFinderHandler(reviewRepository);
     }
@@ -80,18 +80,18 @@ public class UseCaseConfig {
     // ── Player ────────────────────────────────────────────────
 
     @Bean
-    public PlayerRegistrarHandler playerRegistrar(
+    public PlayerRegistrar playerRegistrar(
             PlayerRepository playerRepository,
-            PasswordEncoder  passwordEncoder,
+            PasswordHasher   passwordHasher,
             TokenManager     tokenManager) {
-        return new PlayerRegistrarHandler(playerRepository, passwordEncoder, tokenManager);
+        return new PlayerRegistrarHandler(playerRepository, passwordHasher, tokenManager);
     }
 
     @Bean
-    public PlayerAuthenticatorHandler playerAuthenticator(
+    public PlayerAuthenticator playerAuthenticator(
             PlayerRepository playerRepository,
-            PasswordEncoder  passwordEncoder,
+            PasswordHasher   passwordHasher,
             TokenManager     tokenManager) {
-        return new PlayerAuthenticatorHandler(playerRepository, passwordEncoder, tokenManager);
+        return new PlayerAuthenticatorHandler(playerRepository, passwordHasher, tokenManager);
     }
 }

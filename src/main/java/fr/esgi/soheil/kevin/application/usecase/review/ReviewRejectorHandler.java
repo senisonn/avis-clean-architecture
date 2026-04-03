@@ -4,6 +4,7 @@ import fr.esgi.soheil.kevin.application.dto.Review;
 import fr.esgi.soheil.kevin.application.port.in.ReviewRejector;
 import fr.esgi.soheil.kevin.application.port.out.ModeratorRepository;
 import fr.esgi.soheil.kevin.application.port.out.ReviewRepository;
+import fr.esgi.soheil.kevin.domain.exception.ModeratorNotFoundException;
 import fr.esgi.soheil.kevin.domain.exception.ReviewNotFoundException;
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +19,7 @@ public class ReviewRejectorHandler implements ReviewRejector {
         var review = reviewRepository.findById(reviewId)
                 .orElseThrow(() -> new ReviewNotFoundException(reviewId));
         var moderator = moderatorRepository.findById(moderatorId)
-                .orElseThrow(() -> new ReviewNotFoundException(moderatorId));
+                .orElseThrow(() -> new ModeratorNotFoundException(moderatorId));
 
         review.reject(moderator); // domain method
 
