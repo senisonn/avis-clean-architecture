@@ -24,7 +24,6 @@ public class GameCreatorHandler implements GameCreator {
         game.setReleaseDate(command.releaseDate());
         game.setImageUrl(command.imageUrl());
 
-        // set shallow references — full objects resolved by persistence layer
         if (command.genreId() != null) {
             Genre g = new Genre();
             g.setId(command.genreId());
