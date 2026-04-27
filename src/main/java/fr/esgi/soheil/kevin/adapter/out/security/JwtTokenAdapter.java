@@ -26,9 +26,10 @@ public class JwtTokenAdapter implements TokenManager {
     private final Set<String> blacklist = ConcurrentHashMap.newKeySet();
 
     @Override
-    public String generateToken(String subject) {
+    public String generateToken(String subject, String role) {
         return Jwts.builder()
                 .subject(subject)
+                .claim("role", role)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8)))
@@ -41,12 +42,17 @@ public class JwtTokenAdapter implements TokenManager {
     }
 
     @Override
+    public String extractRole(String token) {
+        return parseClaims(token).get("role", String.class);
+    }
+
+    @Override
     public boolean isValid(String token) {
         if (blacklist.contains(token)) return false;
         try {
             Claims claims = parseClaims(token);
             return claims.getExpiration().after(new Date());
-        } catch (JwtException | IllegalArgumentException e) {
+        } catch (JwtException | IllegalArgumentException _) {
             return false;
         }
     }

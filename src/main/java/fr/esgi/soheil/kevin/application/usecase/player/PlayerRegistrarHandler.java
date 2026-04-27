@@ -28,7 +28,7 @@ public class PlayerRegistrarHandler implements PlayerRegistrar {
         player.setBirthDate(command.birthDate());
 
         Player saved = playerRepository.save(player);
-        String token = tokenManager.generateToken(saved.getEmail());
+        String token = tokenManager.generateToken(saved.getEmail(), "PLAYER");
 
         return new AuthResponse(token, saved.getUsername());
     }

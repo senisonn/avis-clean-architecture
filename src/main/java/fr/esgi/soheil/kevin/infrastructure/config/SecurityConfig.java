@@ -42,8 +42,8 @@ public class SecurityConfig {
                                 "/h2-console/**"
                         ).permitAll()
 
-                        // moderation — authenticated only
-                        .requestMatchers("/api/moderation/**").authenticated()
+                        // moderation — moderators only
+                        .requestMatchers("/api/moderation/**").hasRole("MODERATOR")
 
                         // everything else — authenticated
                         .anyRequest().authenticated()

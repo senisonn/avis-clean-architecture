@@ -3,6 +3,7 @@ package fr.esgi.soheil.kevin.infrastructure.config;
 import fr.esgi.soheil.kevin.application.port.in.*;
 import fr.esgi.soheil.kevin.application.port.out.*;
 import fr.esgi.soheil.kevin.application.usecase.game.*;
+import fr.esgi.soheil.kevin.application.usecase.moderator.*;
 import fr.esgi.soheil.kevin.application.usecase.player.*;
 import fr.esgi.soheil.kevin.application.usecase.review.*;
 import org.springframework.context.annotation.Bean;
@@ -75,6 +76,16 @@ public class UseCaseConfig {
     public PendingReviewFinder pendingReviewFinder(
             ReviewRepository reviewRepository) {
         return new PendingReviewFinderHandler(reviewRepository);
+    }
+
+    // ── Moderator ─────────────────────────────────────────────
+
+    @Bean
+    public ModeratorAuthenticator moderatorAuthenticator(
+            ModeratorRepository moderatorRepository,
+            PasswordHasher       passwordHasher,
+            TokenManager         tokenManager) {
+        return new ModeratorAuthenticatorHandler(moderatorRepository, passwordHasher, tokenManager);
     }
 
     // ── Player ────────────────────────────────────────────────

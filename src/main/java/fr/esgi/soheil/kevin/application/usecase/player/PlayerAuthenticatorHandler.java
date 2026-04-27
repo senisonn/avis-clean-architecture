@@ -23,7 +23,7 @@ public class PlayerAuthenticatorHandler implements PlayerAuthenticator {
         if (!passwordHasher.matches(request.password(), player.getPassword()))
             throw new IllegalArgumentException("Invalid credentials");
 
-        String token = tokenManager.generateToken(player.getEmail());
+        String token = tokenManager.generateToken(player.getEmail(), "PLAYER");
         return new AuthResponse(token, player.getUsername());
     }
 
