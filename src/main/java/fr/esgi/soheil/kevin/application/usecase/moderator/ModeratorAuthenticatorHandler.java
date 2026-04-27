@@ -24,7 +24,7 @@ public class ModeratorAuthenticatorHandler implements ModeratorAuthenticator {
             throw new IllegalArgumentException("Invalid credentials");
 
         String token = tokenManager.generateToken(moderator.getEmail(), "MODERATOR");
-        return new AuthResponse(token, moderator.getUsername());
+        return new AuthResponse(token, moderator.getId(), moderator.getUsername(), "MODERATOR");
     }
 
     @Override

@@ -5,5 +5,7 @@ package fr.esgi.soheil.kevin.application.dto;
  */
 public record AuthResponse(
         String token,
-        String username
+        Long   id,
+        String username,
+        String role
 ) {}

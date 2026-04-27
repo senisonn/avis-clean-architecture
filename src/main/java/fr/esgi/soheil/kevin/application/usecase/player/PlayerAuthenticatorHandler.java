@@ -24,7 +24,7 @@ public class PlayerAuthenticatorHandler implements PlayerAuthenticator {
             throw new IllegalArgumentException("Invalid credentials");
 
         String token = tokenManager.generateToken(player.getEmail(), "PLAYER");
-        return new AuthResponse(token, player.getUsername());
+        return new AuthResponse(token, player.getId(), player.getUsername(), "PLAYER");
     }
 
     @Override

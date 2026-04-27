@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg:           248 250 252;
+    --bg-surface:   255 255 255;
+    --bg-elevated:  241 245 249;
+    --line:         226 232 240;
+    --ink:           15  23  42;
+    --ink-muted:     71  85 105;
+    --ink-dim:      148 163 184;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --bg:            11  13  18;
+    --bg-surface:    17  20  27;
+    --bg-elevated:   23  27  37;
+    --line:          34  38  51;
+    --ink:          230 232 238;
+    --ink-muted:    154 160 173;
+    --ink-dim:      106 111 125;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-bg text-ink antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, rgba(124, 92, 255, 0.08), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(34, 211, 238, 0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, rgba(124, 92, 255, 0.15), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(34, 211, 238, 0.08), transparent 60%);
+  }
+
+  ::selection {
+    @apply bg-brand/40 text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-bg-surface/70 backdrop-blur-md border border-line;
+  }
+  .ring-focus {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+}

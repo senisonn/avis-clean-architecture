@@ -1,0 +1,309 @@
+{
+  "_comment": "Demo data loaded by DataSeeder on startup. Passwords here are plaintext and hashed via PasswordHasher before insertion. Edit/extend freely.",
+
+  "ageRatings": [
+    { "label": "PEGI 3", "colorRgb": "#22c55e" },
+    { "label": "PEGI 7", "colorRgb": "#84cc16" },
+    { "label": "PEGI 12", "colorRgb": "#eab308" },
+    { "label": "PEGI 16", "colorRgb": "#f97316" },
+    { "label": "PEGI 18", "colorRgb": "#ef4444" }
+  ],
+  "genres": [
+    { "name": "Action" },
+    { "name": "Adventure" },
+    { "name": "RPG" },
+    { "name": "Strategy" },
+    { "name": "Indie" },
+    { "name": "Shooter" },
+    { "name": "Simulation" },
+    { "name": "Sports" }
+  ],
+  "platforms": [
+    { "name": "PC", "releaseDate": null },
+    { "name": "PlayStation 5", "releaseDate": "2020-11-12" },
+    { "name": "Xbox Series X", "releaseDate": "2020-11-10" },
+    { "name": "Nintendo Switch", "releaseDate": "2017-03-03" }
+  ],
+  "publishers": [
+    { "name": "CD Projekt Red" },
+    { "name": "FromSoftware" },
+    { "name": "Nintendo" },
+    { "name": "Rockstar Games" },
+    { "name": "Valve" },
+    { "name": "Larian Studios" },
+    { "name": "Mojang Studios" },
+    { "name": "Supergiant Games" }
+  ],
+  "moderators": [
+    {
+      "username": "admin",
+      "email": "admin@test.com",
+      "password": "admin1234",
+      "phoneNumber": "+33 6 00 00 00 00"
+    },
+    {
+      "username": "moderator",
+      "email": "moderator@avis.dev",
+      "password": "moderator123",
+      "phoneNumber": "+33 6 00 00 00 01"
+    }
+  ],
+  "players": [
+    {
+      "username": "test",
+      "email": "test@test.com",
+      "password": "test1234",
+      "birthDate": "2000-01-01"
+    },
+    {
+      "username": "kevin",
+      "email": "kevin@avis.dev",
+      "password": "password123",
+      "birthDate": "1998-05-12"
+    },
+    {
+      "username": "soheil",
+      "email": "soheil@avis.dev",
+      "password": "password123",
+      "birthDate": "1997-09-23"
+    },
+    {
+      "username": "mira",
+      "email": "mira@avis.dev",
+      "password": "password123",
+      "birthDate": "2000-02-14"
+    },
+    {
+      "username": "lucas",
+      "email": "lucas@avis.dev",
+      "password": "password123",
+      "birthDate": "1995-07-30"
+    },
+    {
+      "username": "emma",
+      "email": "emma@avis.dev",
+      "password": "password123",
+      "birthDate": "2001-11-04"
+    }
+  ],
+
+  "games": [
+    {
+      "name": "The Witcher 3: Wild Hunt",
+      "description": "An open-world RPG following monster hunter Geralt across a war-torn fantasy continent. Massive quests, meaningful choices, gorgeous landscapes.",
+      "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "price": 29.99,
+      "releaseDate": "2015-05-19",
+      "genre": "RPG",
+      "publisher": "CD Projekt Red",
+      "ageRating": "PEGI 18",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X", "Nintendo Switch"]
+    },
+    {
+      "name": "Elden Ring",
+      "description": "A vast dark fantasy crafted with George R. R. Martin. Punishing combat, mythical bosses, and a world that rewards exploration above all.",
+      "imageUrl": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80",
+      "price": 59.99,
+      "releaseDate": "2022-02-25",
+      "genre": "RPG",
+      "publisher": "FromSoftware",
+      "ageRating": "PEGI 16",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X"]
+    },
+    {
+      "name": "Baldur's Gate 3",
+      "description": "A turn-based RPG epic powered by D&D 5e. Build a party, romance companions, and shape an unforgettable story across the Forgotten Realms.",
+      "imageUrl": "https://images.unsplash.com/photo-1556438064-2d7646166914?auto=format&fit=crop&w=1200&q=80",
+      "price": 59.99,
+      "releaseDate": "2023-08-03",
+      "genre": "RPG",
+      "publisher": "Larian Studios",
+      "ageRating": "PEGI 18",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X"]
+    },
+    {
+      "name": "The Legend of Zelda: Tears of the Kingdom",
+      "description": "Soar across Hyrule with new powers in this sequel to Breath of the Wild. Build wild contraptions, explore the sky islands, save the kingdom.",
+      "imageUrl": "https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=1200&q=80",
+      "price": 69.99,
+      "releaseDate": "2023-05-12",
+      "genre": "Adventure",
+      "publisher": "Nintendo",
+      "ageRating": "PEGI 12",
+      "platforms": ["Nintendo Switch"]
+    },
+    {
+      "name": "Hades",
+      "description": "A roguelike where you fight your way out of the Underworld of Greek myth. Razor-sharp combat, stylish art, and a story that grows every run.",
+      "imageUrl": "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?auto=format&fit=crop&w=1200&q=80",
+      "price": 24.99,
+      "releaseDate": "2020-09-17",
+      "genre": "Indie",
+      "publisher": "Supergiant Games",
+      "ageRating": "PEGI 12",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X", "Nintendo Switch"]
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "description": "An epic tale of life in America's unforgiving heartland. Lead an outlaw gang in a sprawling, breathtaking open world.",
+      "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "price": 39.99,
+      "releaseDate": "2018-10-26",
+      "genre": "Action",
+      "publisher": "Rockstar Games",
+      "ageRating": "PEGI 18",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X"]
+    },
+    {
+      "name": "Half-Life: Alyx",
+      "description": "A VR-only return to the Half-Life universe. Tense combat, meticulous puzzles, and one of the medium's most polished experiences.",
+      "imageUrl": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=80",
+      "price": 49.99,
+      "releaseDate": "2020-03-23",
+      "genre": "Shooter",
+      "publisher": "Valve",
+      "ageRating": "PEGI 16",
+      "platforms": ["PC"]
+    },
+    {
+      "name": "Minecraft",
+      "description": "Build, explore and survive in an infinite blocky world. Solo or with friends — the only limit is your imagination.",
+      "imageUrl": "https://images.unsplash.com/photo-1606503153255-59d8b8b29bef?auto=format&fit=crop&w=1200&q=80",
+      "price": 26.95,
+      "releaseDate": "2011-11-18",
+      "genre": "Simulation",
+      "publisher": "Mojang Studios",
+      "ageRating": "PEGI 7",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X", "Nintendo Switch"]
+    },
+    {
+      "name": "Cyberpunk 2077",
+      "description": "Live the life of V, a mercenary outlaw in Night City. A dense first-person RPG of cybernetic implants, branching choices, and neon noir.",
+      "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+      "price": 49.99,
+      "releaseDate": "2020-12-10",
+      "genre": "RPG",
+      "publisher": "CD Projekt Red",
+      "ageRating": "PEGI 18",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X"]
+    },
+    {
+      "name": "Stardew Valley",
+      "description": "Inherit your grandfather's old farm plot. Tend crops, raise animals, befriend villagers — a relaxing modern classic.",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=80",
+      "price": 13.99,
+      "releaseDate": "2016-02-26",
+      "genre": "Simulation",
+      "publisher": "Nintendo",
+      "ageRating": "PEGI 7",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X", "Nintendo Switch"]
+    }
+  ],
+
+  "reviews": [
+    {
+      "playerUsername": "kevin",
+      "gameName": "The Witcher 3: Wild Hunt",
+      "rating": 5.0,
+      "content": "Still the gold standard for open-world RPGs. Side quests with real heart and a world that breathes.",
+      "submittedAt": "2026-04-10T14:32:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "soheil",
+      "gameName": "The Witcher 3: Wild Hunt",
+      "rating": 4.5,
+      "content": "Combat takes a few hours to click but the writing carries it all the way to the end.",
+      "submittedAt": "2026-04-12T09:10:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "mira",
+      "gameName": "Elden Ring",
+      "rating": 5.0,
+      "content": "Genre-redefining. The interconnected world rewards curiosity at every turn.",
+      "submittedAt": "2026-04-15T18:45:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "lucas",
+      "gameName": "Elden Ring",
+      "rating": 4.0,
+      "content": "Brutal but fair. Late-game balance gets shaky but the highs are unmatched.",
+      "submittedAt": "2026-04-18T11:00:00",
+      "status": "PUBLISHED"
+    },
+    {
+      "playerUsername": "emma",
+      "gameName": "Baldur's Gate 3",
+      "rating": 5.0,
+      "content": "A miracle of design. Every decision matters and Act 3 is breathtaking.",
+      "submittedAt": "2026-04-20T22:05:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "kevin",
+      "gameName": "Baldur's Gate 3",
+      "rating": 4.5,
+      "content": "Companion stories are some of the best in the genre. A few rough edges in late game.",
+      "submittedAt": "2026-04-22T16:20:00",
+      "status": "PUBLISHED"
+    },
+    {
+      "playerUsername": "soheil",
+      "gameName": "Hades",
+      "rating": 5.0,
+      "content": "Tight, addictive, and the narrative woven into the loop is genius.",
+      "submittedAt": "2026-04-23T20:00:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "lucas",
+      "gameName": "Red Dead Redemption 2",
+      "rating": 4.5,
+      "content": "Slow burn pacing pays off. The most atmospheric world Rockstar has built.",
+      "submittedAt": "2026-04-24T08:30:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "mira",
+      "gameName": "The Legend of Zelda: Tears of the Kingdom",
+      "rating": 5.0,
+      "content": "The fuse and ultrahand mechanics make every encounter a sandbox of solutions.",
+      "submittedAt": "2026-04-25T13:00:00",
+      "status": "APPROVED",
+      "moderatorUsername": "moderator"
+    },
+    {
+      "playerUsername": "emma",
+      "gameName": "Cyberpunk 2077",
+      "rating": 4.0,
+      "content": "Post-2.0 it's the game it was meant to be. Phantom Liberty is a highlight.",
+      "submittedAt": "2026-04-26T19:42:00",
+      "status": "PUBLISHED"
+    },
+    {
+      "playerUsername": "kevin",
+      "gameName": "Stardew Valley",
+      "rating": 5.0,
+      "content": "Cozy, deep, endlessly replayable. The kind of game you keep coming back to.",
+      "submittedAt": "2026-04-27T07:15:00",
+      "status": "PUBLISHED"
+    },
+    {
+      "playerUsername": "lucas",
+      "gameName": "Minecraft",
+      "rating": 4.5,
+      "content": "Whatever you want it to be — survival, sandbox, social space. Timeless.",
+      "submittedAt": "2026-04-27T10:55:00",
+      "status": "REJECTED",
+      "moderatorUsername": "moderator"
+    }
+  ]
+}

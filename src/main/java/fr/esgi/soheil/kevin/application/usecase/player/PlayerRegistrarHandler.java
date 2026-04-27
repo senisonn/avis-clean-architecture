@@ -30,7 +30,7 @@ public class PlayerRegistrarHandler implements PlayerRegistrar {
         Player saved = playerRepository.save(player);
         String token = tokenManager.generateToken(saved.getEmail(), "PLAYER");
 
-        return new AuthResponse(token, saved.getUsername());
+        return new AuthResponse(token, saved.getId(), saved.getUsername(), "PLAYER");
     }
 }
 
