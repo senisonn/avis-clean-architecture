@@ -3,8 +3,11 @@ package fr.esgi.soheil.kevin.infrastructure.config;
 import fr.esgi.soheil.kevin.application.port.in.*;
 import fr.esgi.soheil.kevin.application.port.out.*;
 import fr.esgi.soheil.kevin.application.usecase.game.*;
+import fr.esgi.soheil.kevin.application.usecase.genre.GenreManagerHandler;
 import fr.esgi.soheil.kevin.application.usecase.moderator.*;
+import fr.esgi.soheil.kevin.application.usecase.platform.PlatformManagerHandler;
 import fr.esgi.soheil.kevin.application.usecase.player.*;
+import fr.esgi.soheil.kevin.application.usecase.publisher.PublisherManagerHandler;
 import fr.esgi.soheil.kevin.application.usecase.review.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -76,6 +79,23 @@ public class UseCaseConfig {
     public PendingReviewFinder pendingReviewFinder(
             ReviewRepository reviewRepository) {
         return new PendingReviewFinderHandler(reviewRepository);
+    }
+
+    // ── Genre / Platform / Publisher ──────────────────────────
+
+    @Bean
+    public GenreManager genreManager(GenreRepository genreRepository) {
+        return new GenreManagerHandler(genreRepository);
+    }
+
+    @Bean
+    public PlatformManager platformManager(PlatformRepository platformRepository) {
+        return new PlatformManagerHandler(platformRepository);
+    }
+
+    @Bean
+    public PublisherManager publisherManager(PublisherRepository publisherRepository) {
+        return new PublisherManagerHandler(publisherRepository);
     }
 
     // ── Moderator ─────────────────────────────────────────────
