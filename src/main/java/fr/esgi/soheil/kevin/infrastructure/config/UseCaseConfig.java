@@ -32,8 +32,10 @@ public class UseCaseConfig {
     }
 
     @Bean
-    public GameUpdater gameUpdater(GameRepository gameRepository) {
-        return new GameUpdaterHandler(gameRepository);
+    public GameUpdater gameUpdater(GameRepository gameRepository,
+                                   PublisherRepository publisherRepository,
+                                   GenreRepository genreRepository) {
+        return new GameUpdaterHandler(gameRepository, publisherRepository, genreRepository);
     }
 
     @Bean
